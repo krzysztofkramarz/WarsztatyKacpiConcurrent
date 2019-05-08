@@ -29,7 +29,6 @@ public class Main {
 
         CountDownLatch countDownLatch = new CountDownLatch(ILE_KIEROWCOW);
         Wyscig wyscig = new Wyscig(countDownLatch);
-        wyscig.cosTam();
 
         ThreadFactory threadFactory = new MyThreadFactory("Kierowca-bombowca");
 
@@ -40,6 +39,7 @@ public class Main {
             executorService.submit(new Kierowca(countDownLatch));
 
         }
+        wyscig.cosTam();
 
         executorService.shutdown();
 

@@ -20,6 +20,7 @@ class Wyscig
       try
       {
          countDownLatch.await();
+         System.out.println("Wyscigi start!!");
       }
       catch (InterruptedException e)
       {
