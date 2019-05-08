@@ -22,6 +22,9 @@ package countdownlatch.D_bonusik;
  * @see countdownlatch.B_przykładCountdownLatch.Pasażer
  */
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -40,7 +43,6 @@ public class Main {
         }
 
         latch.await();
-
         System.out.println("Zadanka skończone, ja jadę dalej");
     }
 }

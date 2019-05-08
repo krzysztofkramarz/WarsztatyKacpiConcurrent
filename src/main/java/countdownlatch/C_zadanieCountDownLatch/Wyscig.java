@@ -1,7 +1,9 @@
 package countdownlatch.C_zadanieCountDownLatch;
 
 import java.util.Queue;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * @author krzysztof.kramarz
@@ -9,7 +11,8 @@ import java.util.concurrent.CountDownLatch;
 class Wyscig
 {
    private CountDownLatch countDownLatch;
-   private Queue<Kierowca> kolejkaKierowcow;
+   private Queue<Kierowca> kolejkaKierowcow = new LinkedBlockingQueue<>();
+
 
    public Wyscig( CountDownLatch countDownLatch)
    {
