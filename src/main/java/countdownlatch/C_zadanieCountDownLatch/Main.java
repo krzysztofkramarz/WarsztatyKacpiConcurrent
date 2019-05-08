@@ -32,10 +32,11 @@ public class Main {
 
         ThreadFactory threadFactory = new MyThreadFactory("Kierowca-bombowca");
 
-        ExecutorService executorService = Executors.newFixedThreadPool(3, threadFactory);
+        ExecutorService executorService = Executors.newFixedThreadPool(5, threadFactory);
 
         for (int i = 0; i < 5; i++)
         {
+
             executorService.submit(new Kierowca(countDownLatch));
 
         }

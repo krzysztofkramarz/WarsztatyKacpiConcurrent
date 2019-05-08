@@ -1,5 +1,6 @@
 package countdownlatch.C_zadanieCountDownLatch;
 
+import java.util.Queue;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -8,6 +9,7 @@ import java.util.concurrent.CountDownLatch;
 class Wyscig
 {
    private CountDownLatch countDownLatch;
+   private Queue<Kierowca> kolejkaKierowcow;
 
    public Wyscig( CountDownLatch countDownLatch)
    {
@@ -26,5 +28,10 @@ class Wyscig
       {
          e.printStackTrace();
       }
+   }
+
+   void kierowcaZglosilSie(Kierowca kierowca){
+      System.out.println("Kierowca przyjechal na START");
+      kolejkaKierowcow.add(kierowca);
    }
 }
