@@ -14,6 +14,7 @@ public class Main {
     //TODO:miejscu miasta, więc czas dotarcia będzie różny. Dopiero kiedy wszyscy pojawią się na miejscu - wyścig ruszy!
     //TODO:Skorzystaj śmiało z fabryki wątków, którą umieściłem w projekcie.
     //TODO:Kiedy skończysz, spróbuj napisać program tak, że po jakimś określonym czasie wyścig rozpocznie się niezależnie od tego, czy wszyscy zdążyli się stawić na miejscu :)
+    //TODO:Po zadaniu zmień gałąź na wprowadzenieCyclicBarrier
 
     public static void main(String[] args) {
 
