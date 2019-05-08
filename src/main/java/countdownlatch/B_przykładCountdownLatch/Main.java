@@ -17,6 +17,7 @@ public class Main {
 
     //TODO:Uruchom program kilka razy, prześledź działanie.
     //TODO:Zakomentuj linię 26 w klasie Pociąg, uruchom program i zrozum działanie metody await();
+    //TODO:Jak skończysz, zmień gałąź na countDownLatchZadanko
 
     private static final int ILOSC_ZAREZERWOWANYCH_BILETOW = 10;
 
