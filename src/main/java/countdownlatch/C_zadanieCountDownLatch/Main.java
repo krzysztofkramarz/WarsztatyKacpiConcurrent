@@ -37,7 +37,7 @@ public class Main {
         for (int i = 0; i < 5; i++)
         {
 
-            executorService.submit(new Kierowca(countDownLatch));
+            executorService.submit(new Kierowca(countDownLatch, wyscig));
 
         }
         wyscig.cosTam();

@@ -11,9 +11,10 @@ class Kierowca implements Runnable
    private CountDownLatch countDownLatch;
    private Wyscig wyscig;
 
-   public Kierowca(CountDownLatch countDownLatch)
+   public Kierowca(CountDownLatch countDownLatch, Wyscig wyscig)
    {
       this.countDownLatch = countDownLatch;
+      this.wyscig = wyscig;
    }
 
    @Override
@@ -23,12 +24,13 @@ class Kierowca implements Runnable
             "O ja cię, mam esemesa, zaczynaja się zaraz wyscigi! Pa kochanie, połóż dzieci sama. To ja jestem: " + Thread.currentThread().getName());
       try
       {
-         Thread.sleep(ThreadLocalRandom.current().nextInt(1000));
+         Thread.sleep(ThreadLocalRandom.current().nextInt(10000));
       }
       catch (InterruptedException e)
       {
 
       }
+      wyscig.kierowcaZglosilSie(this);
       countDownLatch.countDown();
       System.out.println("Przyjechalem! " + Thread.currentThread().getName());
    }
