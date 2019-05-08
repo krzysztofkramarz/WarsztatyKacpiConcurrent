@@ -1,5 +1,12 @@
 package countdownlatch.C_zadanieCountDownLatch;
 
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
+
+import fabryczkapomocnicza.MyThreadFactory;
+
 /**
  * <p>Czas na pierwsze większe zadanko dla Ciebie :) Będzie ono bardzo podobne do zadania z przykładu,
  * jednak dla własnego dobra staraj się tam nie zaglądać. Użyj CountDownLatch, poczytaj dokumentację jeżeli
@@ -9,6 +16,8 @@ package countdownlatch.C_zadanieCountDownLatch;
  */
 public class Main {
 
+    private static final int ILE_KIEROWCOW = 5;
+
     //TODO: Napisz program, który symuluje NIELEGALNE WYSCIGI W LA! Coś jak Need For Speed ;D
     //TODO:5 kierowców otrzymało smsa z miejscem rozpoczęcia, czym prędzej jadą na miejsce! Jednak każdy jest w innym
     //TODO:miejscu miasta, więc czas dotarcia będzie różny. Dopiero kiedy wszyscy pojawią się na miejscu - wyścig ruszy!
@@ -17,6 +26,22 @@ public class Main {
     //TODO:Po zadaniu zmień gałąź na wprowadzenieCyclicBarrier
 
     public static void main(String[] args) {
+
+        CountDownLatch countDownLatch = new CountDownLatch(ILE_KIEROWCOW);
+        Wyscig wyscig = new Wyscig(countDownLatch);
+        wyscig.cosTam();
+
+        ThreadFactory threadFactory = new MyThreadFactory("Kierowca-bombowca");
+
+        ExecutorService executorService = Executors.newFixedThreadPool(3, threadFactory);
+
+        for (int i = 0; i < 5; i++)
+        {
+            executorService.submit(new Kierowca(countDownLatch));
+
+        }
+
+        executorService.shutdown();
 
     }
 }
